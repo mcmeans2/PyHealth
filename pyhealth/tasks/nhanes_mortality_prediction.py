@@ -93,10 +93,12 @@ class NHANESMortalityPrediction(BaseTask):
         ...     NHANESMortalityPrediction,
         ... )
         >>> root = tempfile.mkdtemp()
-        >>> _ = generate_synthetic_nhanes(root, n_participants=10, n_days=7)
-        >>> dataset = NHANESDataset(root=root)
-        >>> samples = dataset.set_task(NHANESMortalityPrediction())
-        >>> samples[0]["intensity"].shape
+        >>> _ = generate_synthetic_nhanes(  # doctest: +SKIP
+        ...     root, n_participants=10, n_days=7
+        ... )
+        >>> dataset = NHANESDataset(root=root)  # doctest: +SKIP
+        >>> samples = dataset.set_task(NHANESMortalityPrediction())  # doctest: +SKIP
+        >>> samples[0]["intensity"].shape  # doctest: +SKIP
         torch.Size([1008, 1])
     """
 

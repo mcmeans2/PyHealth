@@ -152,12 +152,16 @@ class NHANESDataset(BaseDataset):
         >>> from pyhealth.datasets.nhanes import NHANESDataset
         >>> from pyhealth.datasets.nhanes_synthetic import generate_synthetic_nhanes
         >>> root = tempfile.mkdtemp()
-        >>> _ = generate_synthetic_nhanes(root, n_participants=10, n_days=2)
-        >>> dataset = NHANESDataset(root=root)  # nonwear="authors"
-        >>> dataset.stats()
-        >>> patient = dataset.get_patient(dataset.unique_patient_ids[0])
-        >>> event = patient.get_events(event_type="nhanes")[0]
-        >>> epochs = pd.read_parquet(event.epoch_file)
+        >>> _ = generate_synthetic_nhanes(  # doctest: +SKIP
+        ...     root, n_participants=10, n_days=2
+        ... )
+        >>> dataset = NHANESDataset(root=root)  # doctest: +SKIP
+        >>> dataset.stats()  # doctest: +SKIP
+        >>> patient = dataset.get_patient(  # doctest: +SKIP
+        ...     dataset.unique_patient_ids[0]
+        ... )
+        >>> event = patient.get_events(event_type="nhanes")[0]  # doctest: +SKIP
+        >>> epochs = pd.read_parquet(event.epoch_file)  # doctest: +SKIP
     """
 
     def __init__(

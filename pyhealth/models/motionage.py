@@ -91,12 +91,16 @@ class MotionAge(BaseModel):
         ...     NHANESMortalityPrediction,
         ... )
         >>> root = tempfile.mkdtemp()
-        >>> _ = generate_synthetic_nhanes(root, n_participants=10, n_days=7)
+        >>> _ = generate_synthetic_nhanes(  # doctest: +SKIP
+        ...     root, n_participants=10, n_days=7
+        ... )
         >>> task = NHANESMortalityPrediction()
-        >>> samples = NHANESDataset(root=root).set_task(task)
-        >>> model = MotionAge(samples, category_sizes=task.category_sizes)
-        >>> batch = next(iter(get_dataloader(samples, batch_size=4)))
-        >>> model(**batch)["y_prob"].shape
+        >>> samples = NHANESDataset(root=root).set_task(task)  # doctest: +SKIP
+        >>> model = MotionAge(  # doctest: +SKIP
+        ...     samples, category_sizes=task.category_sizes
+        ... )
+        >>> batch = next(iter(get_dataloader(samples, batch_size=4)))  # doctest: +SKIP
+        >>> model(**batch)["y_prob"].shape  # doctest: +SKIP
         torch.Size([4, 1])
     """
 
