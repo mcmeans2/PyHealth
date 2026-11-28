@@ -15,8 +15,19 @@ channel-independently on the inputs of
 :class:`~pyhealth.tasks.PhysioNet2012Forecasting`, like
 :class:`~pyhealth.models.APN`.
 
+.. note::
+
+   As of November 2026, ``MIRA-Mode/MIRA`` is no longer publicly available on
+   Hugging Face (anonymous requests return 401), so ``pretrained=True`` raises
+   a ``RuntimeError``. If you have a copy of the snapshot, pass its directory
+   (holding ``config.json`` and ``model.safetensors``) as ``pretrained``.
+   Randomly initialized models (``pretrained=False``) are not affected.
+
 See ``examples/mira_physionet2012_forecasting.ipynb`` for zero-shot MIRA on
 PhysioNet 2012 next to APN and last observation carried forward.
+``examples/mira_signal_forecasting.py`` runs the same comparison on PTB-XL
+(:class:`~pyhealth.tasks.PTBXLForecasting`) and Sleep-EDF
+(:class:`~pyhealth.tasks.SleepEDFForecasting`).
 
 .. autoclass:: pyhealth.models.MIRA
     :members:

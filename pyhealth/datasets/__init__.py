@@ -53,6 +53,7 @@ SampleSignalDataset = _removed_1x_class(
 
 
 from .base_dataset import BaseDataset
+from .cdc_covid import CDCCOVIDDataset as CDCCOVIDDataset
 from .pbc import PBCDataset as PBCDataset
 from .imaging.patches import PatchDataset as PatchDataset
 from .imaging.stats import (
@@ -65,6 +66,11 @@ from .chaos import CHAOSDataset as CHAOSDataset
 from .chest_imagenome import ChestImaGenomeDataset as ChestImaGenomeDataset
 from .chestxray14 import ChestXray14Dataset
 from .ham10000 import HAM10000Dataset as HAM10000Dataset
+from .ph2 import PH2Dataset as PH2Dataset
+from .polyp import (
+    POLYP_TEST_SETS as POLYP_TEST_SETS,
+    PolypDataset as PolypDataset,
+)
 from .clinvar import ClinVarDataset
 from .cosmic import COSMICDataset
 from .covid19_cxr import COVID19CXRDataset
@@ -77,6 +83,7 @@ from .dreamt import DREAMTDataset
 from .ehrshot import EHRShotDataset
 from .eicu import eICUDataset
 from .isruc import ISRUCDataset
+from .hmc import HMCDataset as HMCDataset
 from .medical_transcriptions import MedicalTranscriptionsDataset
 from .msd import (
     MSDHippocampusDataset as MSDHippocampusDataset,
@@ -86,6 +93,7 @@ from .msd import (
 )
 from .meds import MEDSDataset as MEDSDataset
 from .metabric import MetabricDataset as MetabricDataset
+from .rotterdam import RotterdamDataset as RotterdamDataset
 from .mimic3 import MIMIC3Dataset
 from .mimic4 import MIMIC4CXRDataset, MIMIC4Dataset, MIMIC4EHRDataset, MIMIC4NoteDataset
 from .mimic4 import MIMIC4EDDataset as MIMIC4EDDataset
@@ -104,6 +112,7 @@ from .sample_dataset import SampleBuilder, SampleDataset, create_sample_dataset
 from .abide import ABIDEDataset as ABIDEDataset
 from .shhs import SHHSDataset
 from .sleepedf import SleepEDFDataset
+from .nsrr_sleep import NSRRSleepDataset as NSRRSleepDataset
 from .bmd_hs import BMDHSDataset
 from .support2 import Support2Dataset
 from .synthea_csv import SyntheaCSVDataset as SyntheaCSVDataset

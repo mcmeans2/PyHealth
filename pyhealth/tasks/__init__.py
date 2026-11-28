@@ -1,4 +1,7 @@
 from .base_task import BaseTask
+from .cdc_covid_mortality import (
+    CDCCOVIDMortalityPrediction as CDCCOVIDMortalityPrediction,
+)
 from .task_card import (
     DIRECTIONS as DIRECTIONS,
     FeatureInfo as FeatureInfo,
@@ -17,6 +20,11 @@ from .cardiology_detect import (
     cardiology_isCD_fn,
     cardiology_isWA_fn,
 )
+from .climb_ecg import (
+    CLIMB_ECG_CLASSES as CLIMB_ECG_CLASSES,
+    CLIMBECGClassification as CLIMBECGClassification,
+    read_climb_ecg_splits as read_climb_ecg_splits,
+)
 from .chestxray14_binary_classification import ChestXray14BinaryClassification
 from .isic2019_classification import (
     ISIC2019Classification as ISIC2019Classification,
@@ -24,6 +32,9 @@ from .isic2019_classification import (
 from .chestxray14_multilabel_classification import ChestXray14MultilabelClassification
 from .ham10000_classification import (
     HAM10000Classification as HAM10000Classification,
+)
+from .ph2_artifact_classification import (
+    PH2ArtifactClassification as PH2ArtifactClassification,
 )
 from .chaos_segmentation import (
     CHAOSAbdominalSegmentationCTMRI as CHAOSAbdominalSegmentationCTMRI,
@@ -40,16 +51,42 @@ from .covid19_cxr_generation import (
     COVID19CXRImageGeneration as COVID19CXRImageGeneration,
 )
 from .ptbxl_multilabel_classification import PTBXLMultilabelClassification as PTBXLMultilabelClassification
+from .ptbxl_label_group_classification import (
+    PTBXLLabelGroupClassification as PTBXLLabelGroupClassification,
+)
 from .ptbxl_heartlang import PTBXLHeartLangClassification as PTBXLHeartLangClassification
+from .cpsc2018_heartlang import (
+    CPSC2018HeartLangClassification as CPSC2018HeartLangClassification,
+)
 from .ptbxl_heartbeat import PTBXLHeartbeatMI as PTBXLHeartbeatMI
 from .chapman_shaoxing_classification import (
     ChapmanShaoxingSNOMEDClassification as ChapmanShaoxingSNOMEDClassification,
     ChapmanShaoxingSuperclassClassification as ChapmanShaoxingSuperclassClassification,
 )
+from .chapman_heartlang import (
+    ChapmanShaoxingHeartLangClassification as ChapmanShaoxingHeartLangClassification,
+)
+from .physionet2012_mortality import (
+    PhysioNet2012Mortality as PhysioNet2012Mortality,
+    physionet2012_mortality_statistics as physionet2012_mortality_statistics,
+    split_by_record_ids as split_by_record_ids,
+)
 from .physionet2012_forecasting import (
     PhysioNet2012Forecasting as PhysioNet2012Forecasting,
     physionet2012_benchmark_split as physionet2012_benchmark_split,
     physionet2012_statistics as physionet2012_statistics,
+)
+from .signal_forecasting import (
+    PTBXL_LEADS as PTBXL_LEADS,
+    SLEEPEDF_CHANNELS as SLEEPEDF_CHANNELS,
+    PTBXLForecasting as PTBXLForecasting,
+    SleepEDFForecasting as SleepEDFForecasting,
+)
+from .polyp_detection import PolypDetection as PolypDetection
+from .physionet2012_inhospital_mortality import (
+    PhysioNet2012InHospitalMortality as PhysioNet2012InHospitalMortality,
+    build_mortality_sample as build_mortality_sample,
+    physionet2012_normalization as physionet2012_normalization,
 )
 from .deid_ner import DeIDNERTask
 from .dka import DKAPredictionMIMIC4, T1DDKAPredictionMIMIC4
@@ -57,6 +94,11 @@ from .dka import DKAPredictionMIMIC4, T1DDKAPredictionMIMIC4
 # __all__, and the PR lint gate flags F401 on newly added import lines.
 from .disease_progression_mimic4 import (
     DiseaseProgressionMIMIC4 as DiseaseProgressionMIMIC4,
+)
+from .delphi_trajectory import (
+    DelphiTrajectoryMEDS as DelphiTrajectoryMEDS,
+    DelphiTrajectoryMIMIC4 as DelphiTrajectoryMIMIC4,
+    DelphiTrajectoryUKB as DelphiTrajectoryUKB,
 )
 from .drug_recommendation import (
     DrugRecommendationEICU,
@@ -77,6 +119,9 @@ from .ehr_cxr_mimic4 import (
     EHRCXRMortalityMIMIC4 as EHRCXRMortalityMIMIC4,
     EHRCXRPhenotypingMIMIC4 as EHRCXRPhenotypingMIMIC4,
 )
+from .prior_exam_preference import (
+    PriorExamPreferenceTask as PriorExamPreferenceTask,
+)
 from .maestro_mortality_mimic4 import (
     MAESTROMortalityMIMIC4 as MAESTROMortalityMIMIC4,
 )
@@ -91,6 +136,9 @@ from .ehr_text_serialization import (
 )
 from .in_hospital_mortality_meds import (
     InHospitalMortalityMEDS as InHospitalMortalityMEDS,
+)
+from .in_hospital_mortality_48h_mimic3 import (
+    InHospitalMortality48hMIMIC3 as InHospitalMortality48hMIMIC3,
 )
 from .in_hospital_mortality_mimic4 import InHospitalMortalityMIMIC4
 from .kits23_classification import (
@@ -133,6 +181,11 @@ from .ethos_tasks import (
     EthosRolloutRule as EthosRolloutRule,
     EthosTimelineMEDS as EthosTimelineMEDS,
 )
+from .evicare_diagnosis import (
+    CCSMapping as CCSMapping,
+    EviCareDiagnosisPredictionMIMIC3 as EviCareDiagnosisPredictionMIMIC3,
+    EviCareDiagnosisPredictionMIMIC4 as EviCareDiagnosisPredictionMIMIC4,
+)
 from .msd_segmentation import MSDSegmentationTask as MSDSegmentationTask
 from .next_visit_diagnosis_prediction import (
     NextVisitDiagnosisPredictionMIMIC3 as NextVisitDiagnosisPredictionMIMIC3,
@@ -159,6 +212,9 @@ from .survival_time_to_event import (
 )
 from .survival_time_to_event import (
     SurvivalTimeToEventSupport2 as SurvivalTimeToEventSupport2,
+)
+from .multi_event_survival_rotterdam import (
+    MultiEventSurvivalRotterdam as MultiEventSurvivalRotterdam,
 )
 from .mortality_prediction_stagenet_mimic4 import (
     MortalityPredictionStageNetMIMIC4,
@@ -226,10 +282,12 @@ from .covid_blues_severity import (
     COVIDBLUESSeverityClassification as COVIDBLUESSeverityClassification,
 )
 from .sleep_staging_v2 import SleepStagingSleepEDF
+from .sleep_staging_nsrr import SleepStagingCardioRespiratory  # noqa: F401
 from .sleep_staging_isruc import SleepStagingISRUC as SleepStagingISRUC
 from .sleep_staging_isruc import (
     SleepStagingSequenceISRUC as SleepStagingSequenceISRUC,
 )
+from .sleep_staging_hmc import SleepStagingHMC as SleepStagingHMC
 from .temple_university_EEG_tasks import (
     EEGEventsTUEV,
     EEGAbnormalTUAB
@@ -278,6 +336,10 @@ from .value_set_completion import (
     ValueSetCompletion as ValueSetCompletion,
     build_retrieval_index as build_retrieval_index,
 )
+from .value_set_pair_classification import (
+    ValueSetPairClassification as ValueSetPairClassification,
+    build_hybrid_retrieval_index as build_hybrid_retrieval_index,
+)
 from .yaib_mimic3 import (
     YAIBAKIMIMIC3 as YAIBAKIMIMIC3,
     YAIBKidneyFunctionMIMIC3 as YAIBKidneyFunctionMIMIC3,
@@ -300,6 +362,7 @@ from .yaib_eicu import (
     YAIBSepsisEICU as YAIBSepsisEICU,
 )
 from .tcga_survival_prediction import TCGASurvivalPrediction as TCGASurvivalPrediction
+from .query_focused_ehr import QueryFocusedEHRTask as QueryFocusedEHRTask
 
 def __getattr__(name: str):
     if name == "MPFClinicalPredictionTask":
